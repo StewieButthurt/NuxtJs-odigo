@@ -1,0 +1,25 @@
+<template>
+    <div class="admin-home">
+        <div class="admin-home__tile">
+            Welcome to Admin Panel!
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        middleware: ['admin-auth'],
+        layout: 'admin',
+        head: {
+            title: 'Admin | Home'
+        }
+    }
+</script>
+
+<style lang="sass">
+    .admin-home
+        padding-left: 20px
+    .admin-home__tile
+        padding-top: 20px
+        font-size: 24px
+</style>
