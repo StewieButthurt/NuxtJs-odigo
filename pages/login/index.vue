@@ -57,6 +57,7 @@
                     :error-messages="loginErrorDescr"
                     :error="loginError"
                     @input="inputLogin"
+                    v-on:keyup.enter="loginAuth"
                   />
 
                   <v-text-field
@@ -70,6 +71,7 @@
                     :error-messages="passwordErrorDescr"
                     :error="passwordError"
                     @input="inputPassword"
+                    v-on:keyup.enter="loginAuth"
                   />
                 </v-form>
               </v-card-text>
@@ -161,7 +163,7 @@
             },
             messageLoginAttempts() {
               if(this.message.message === 'loginAttempts') {
-                return 'Too many authorization attempts, try again in an hour'
+                return 'Too many authorization attempts, try again in an 5 min'
               } else {
                 return false
               }

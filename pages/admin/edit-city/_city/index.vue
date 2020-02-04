@@ -8,6 +8,7 @@
               append-icon="apartment"
               label="Enter the name of the city"
               v-model="titleEdit"
+              v-on:keyup.enter="updateCity"
             ></v-text-field>
           </v-col>
         </v-row>
@@ -21,6 +22,7 @@
                 label="Add a description of the city"
                 value=""
                 v-model="descrEdit"
+                v-on:keyup.enter="updateCity"
             ></v-textarea>
           </v-col>
         </v-row>

@@ -6,10 +6,10 @@ const router = Router()
 
 
 const AuthLimiter = rateLimit({
-    windowMs: 60 * 60 * 1000, // 1 hour window
+    windowMs: 5 * 60 * 1000, // 5 min
     max: 5, // start blocking after 5 requests
     message:
-      "Too many authorization attempts, try again in an hour"
+      "Too many authorization attempts, try again in an 5 min"
   });
 
 // /api/auth/admin/token
