@@ -1,19 +1,14 @@
 <template>
     <div class="edit-city">
-        <v-row>
-            <v-col>
-                <app-edit-city
-                    v-for="item in cityes" 
-                    :title="item.title"
-                    :img="item.previewImg[0]"
-                    :id="item._id"
-                    :descr="item.descr"
-                    :key="item.title"
-                    :seeMoreButton="false"
-                />
-            </v-col>
-        </v-row>
-        
+            <app-edit-city
+                v-for="item in cityes" 
+                :title="item.title"
+                :img="item.previewImg[0]"
+                :id="item._id"
+                :descr="item.descr"
+                :key="item.title"
+                :seeMoreButton="false"
+            />
     </div>
 </template>
 
@@ -45,6 +40,8 @@
     }
 </script>
 
-<style style="sass">
-
+<style lang="sass">
+    .edit-city
+        display: flex
+        flex-wrap: wrap
 </style>

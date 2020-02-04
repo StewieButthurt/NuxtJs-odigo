@@ -1,32 +1,70 @@
 <template>
-    <div class="today-top-city">
-        <div class="today-top-city__img" @mouseover="todayTopCity = true" @mouseleave="todayTopCity = false">
-            <img :class="{'today-top-city__img-hover' : todayTopCity}" :src="imgMini" :alt="title">
-            <div class="today-top-city__title-mask">
-                <div class="today-top-city__title-mask-text">
-                    {{title}}
+    <div>
+        <v-card
+            width="300"
+            class="edit-city__card-city"
+        >
+            <div class="today-top-city__img" @mouseover="todayTopCity = true" @mouseleave="todayTopCity = false">
+                <div class="edit-city__img-card" :style="{ backgroundImage: `url(${imgMini})`, backgroundPosition: 'center', backgroundSize: 'cover' }" :class="{'today-top-city__img-hover' : todayTopCity}"></div>
+                <div class="today-top-city__title-mask">
+                    <div class="today-top-city__title-mask-text">
+                        {{title}}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="today-top-city__descr">
-            {{descrSmall}}
-        </div>
-        <v-spacer />
-        <v-row>
-            <v-col>
+            
+            <v-card-subtitle class="edit-city__card-subtitile">
+                {{descrSmall}}
+            </v-card-subtitle>
+
+            <v-card-actions>
                 <v-btn 
-                    color="primary"
-                    class="mr-8"
-                    min-width="90px"
-                    @click="clickEdit()"
-                    >Edit</v-btn>
+                        color="primary"
+                        class="mr-8 mb-3"
+                        min-width="90px"
+                        @click="clickEdit()"
+                        >
+                        Edit
+                </v-btn>
                 <v-btn 
                     color="error"
+                    class="mb-3"
                     min-width="90px"
+                    @click.stop="dialog = true"
                     >
-                    Delete</v-btn>
-            </v-col>
-        </v-row>
+                    Delete
+                </v-btn>
+            </v-card-actions>
+                    
+            <v-dialog
+                v-model="dialog"
+                max-width="290"
+            >
+                <v-card class="pt-6">
+                    <v-card-subtitle  class="edit-city__dialoge-subtitile">
+                        Are you sure you want to remove {{title}} from the list of cities?
+                    </v-card-subtitle>
+    
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn
+                        color="red darken-3"
+                        text
+                        @click="dialog = false"
+                        >
+                        Delete
+                        </v-btn>
+                        <v-btn
+                            color="grey darken-1"
+                            text
+                            @click="dialog = false"
+                        >
+                            Cancel
+                        </v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
+        </v-card>
     </div>
 </template>
 
@@ -34,7 +72,8 @@
     export default {
         data() {
             return {
-                todayTopCity: false
+                todayTopCity: false,
+                dialog: false
             }
         },
         props: [
@@ -74,76 +113,18 @@
 
 <style lang="sass">
     @import "~/assets/smart-grid.sass"
+ 
+    .edit-city__card-city
+        margin: 30px 30px 0px 30px
 
-    .today-top-city
-        +size(3.6)
-        +size-md(5.8)
-        +size-xs(12)
-        margin-top: 42px
-        margin-bottom: 77px
-        display: flex
-        flex-direction: column
-        +lgX-block
-            margin-top: 32px
-            margin-bottom: 29px
-        +xs-block
-            align-items: center
-            margin-bottom: 60px
-    
     .today-top-city__img
         width: 100%
+        height: 300px
         cursor: pointer
         overflow: hidden
         display: flex
         position: relative
-
-    .today-top-city__img img
-        width: 100%
-        transition-duration: 0.4s
-
-    .today-top-city__descr
-        margin-top: 60px
-        font-size: 21px
-        min-height: 96px
-        position: relative
-        color: #102746
-        line-height: 24px
-        overflow: hidden
-        +size-xs(10)
-        +lgX-block
-            margin-top: 45px
-            font-size: 16px
-        +xs-block
-            text-align: center
-
-
-    .today-top-city__button
-        display: flex
-        justify-content: center
-        align-content: center
-        flex-wrap: wrap
-        color: white
-        margin-top: 31px
-        user-select: none
-        text-transform: uppercase
-        background-color: #006DFE
-        width: 157px
-        height: 56px
-        cursor: pointer
-        transition-duration: 0.3s
-        +lgX-block
-            width: 118px
-            height: 42px
-            margin-top: 41px
-    
-    .today-top-city__button:hover
-        transform: scale(0.9)
-        +md-block
-            transform: none
-    
-    
-    .today-top-city__button:active
-        transform: scale(0.8)
+   
     
     .today-top-city__title-mask
         position: absolute
@@ -209,10 +190,18 @@
     .today-top-city__img-hover
         transform: scale(1.1)
     
-    .button-disabled-margin
-        margin-top: 30px
+    .edit-city__dialoge-subtitile
+        font-size: 16px
     
-    .login__button
-        border-radius: 0px
+    .edit-city__card-subtitile
+        min-height: 120px
     
+    .edit-city__img-card
+        width: 100%
+        height: 300px
+        position: absolute
+        left: 0px
+        top: 0px
+        transition-duration: 0.4s
+
 </style>
