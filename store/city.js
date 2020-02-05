@@ -17,10 +17,9 @@ export const actions = {
             throw e
         }
     },
-	async removeProduct({commit, dispatch}, title) {
+	async deleteCity({commit, dispatch}, id) {
 		try {
-			await this.$axios.$delete('/api/product/admin', { data: { title: title}})
-			dispatch('adminProducts')
+			await this.$axios.$delete('/api/city/admin/delete-city', { data: { id: id}})
 		} catch (e) {
 			throw e
 		}

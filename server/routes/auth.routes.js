@@ -17,7 +17,7 @@ router.get(
     '/admin/token',
     passport.authenticate('jwt', { session: false }),
     function (req, res) {
-        res.status(201).json({ message: 'Token true' })
+        res.status(200).json({ message: 'Token true' })
     }
 )
 

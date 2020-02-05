@@ -9,27 +9,24 @@ const router = Router()
 router.post(
     '/admin/create-city',
     passport.authenticate('jwt', { session: false }),
-    ctr.create,
-    function (req, res) {
-        res.status(200)
-    }
+    ctr.create
 )
 
 router.post(
     '/admin/update-city',
     passport.authenticate('jwt', { session: false }),
-    ctr.updateCity,
-    function (req, res) {
-        res.status(200)
-    }
+    ctr.updateCity
+)
+
+router.delete(
+    '/admin/delete-city',
+    passport.authenticate('jwt', { session: false }),
+    ctr.remove
 )
 
 router.get(
     '/',
-    ctr.getCity,
-    function (req, res) {
-        res.status(200)
-    }
+    ctr.getCity
 )
 
 module.exports = router

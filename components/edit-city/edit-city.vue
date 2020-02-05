@@ -50,7 +50,8 @@
                         <v-btn
                         color="red darken-3"
                         text
-                        @click="dialog = false"
+                        :loading="deleteCityLoading"
+                        @click="clickDelete()"
                         >
                         Delete
                         </v-btn>
@@ -73,7 +74,8 @@
         data() {
             return {
                 todayTopCity: false,
-                dialog: false
+                dialog: false,
+                deleteCityLoading: false
             }
         },
         props: [
@@ -89,6 +91,13 @@
                 await this.$store.dispatch('localStorage/setDescr', this.descr);
                 await this.$store.dispatch('localStorage/setId', this.id);
                 this.$router.push({ path: `/admin/edit-city/${this.title}`})
+            },
+            async clickDelete() {
+                this.deleteCityLoading = true;
+                await this.$store.dispatch('city/deleteCity', this.id);
+                await this.$store.dispatch('city/setCity');
+                this.deleteCityLoading = false;
+                this.dialog = false;
             }
         },
         computed: {
@@ -115,7 +124,7 @@
     @import "~/assets/smart-grid.sass"
  
     .edit-city__card-city
-        margin: 30px 30px 0px 30px
+        margin: 30px 30px 20px 30px
 
     .today-top-city__img
         width: 100%

@@ -81,3 +81,12 @@ module.exports.getCity = async (req, res) => {
         res.status(500).json(e)
     }
 }
+
+module.exports.remove = async (req, res) => {
+    try {
+        const city = await City.deleteOne({_id: req.body.id})
+        res.json({ message: `City deleted`})
+    } catch (e) {
+        res.status(500).json(e)
+    }
+}
