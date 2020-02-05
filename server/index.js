@@ -40,8 +40,8 @@ app.use(cors());
 app.enable('trust proxy'); 
 
 const apiLimiter = new RateLimit({
-  windowMs: 15*60*1000, // 15 minutes
-  max: 100,
+  windowMs: 5*60*1000, // 5 minutes
+  max: 150,
 });
 
 // использование ограничителя запросов на одном IP
