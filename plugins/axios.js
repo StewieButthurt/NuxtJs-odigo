@@ -16,13 +16,13 @@ export default function ({$axios, redirect, store}) {
             }
 
             if (error.response.status === 401) {
-                redirect('/login?message=login')
                 store.dispatch('auth/logout')
+                redirect('/login?message=login')
             }
 
             if (error.response.status === 429) {
-                redirect('/login?message=loginAttempts')
                 store.dispatch('auth/logout')
+                redirect('/login?message=loginAttempts')
             }
 
             if (error.response.status === 500) {

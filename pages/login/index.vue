@@ -18,22 +18,51 @@
             md="5"
             sm="6"
             xs="6"
+
           >
             <v-row justify="center" align="center">
               <v-col  
               >
-                <v-alert class="my-v-alert text-center" :dense="true" type="info" v-if="messageInfo">
+                <v-fade-transition>
+                  <v-alert class="my-v-alert text-center" 
+                        :dense="true" 
+                        type="info" 
+                        v-if="messageInfo"
+                        transition="scale-transition"
+                        >
                   {{messageInfo}}
-                </v-alert>
-                <v-alert class="my-v-alert text-center" :dense="true" type="warning" v-if="messageSession">
-                  {{messageSession}}
-                </v-alert>
-                <v-alert class="my-v-alert text-center" :dense="true" type="error" v-if="messageAuthError">
-                  {{messageAuthError}}
-                </v-alert>
-                <v-alert class="my-v-alert text-center" :dense="true" type="error" v-if="messageLoginAttempts">
+                  </v-alert>
+                </v-fade-transition>
+                <v-fade-transition>
+                  <v-alert class="my-v-alert text-center" 
+                        :dense="true" 
+                        type="warning" 
+                        v-if="messageSession"
+                        transition="scale-transition"
+                        >
+                        {{messageSession}}
+                  </v-alert>
+                </v-fade-transition>
+                <v-fade-transition>
+                  <v-alert class="my-v-alert text-center" 
+                        :dense="true" 
+                        type="error" 
+                        v-if="messageAuthError"
+                        transition="scale-transition"
+                        >
+                      {{messageAuthError}}
+                  </v-alert>
+                </v-fade-transition>
+                <v-fade-transition>
+                  <v-alert class="my-v-alert text-center" 
+                        :dense="true" 
+                        type="error" 
+                        v-if="messageLoginAttempts"
+                        transition="scale-transition"
+                        >
                   {{messageLoginAttempts}}
-                </v-alert>
+                  </v-alert>
+                </v-fade-transition>
               </v-col>
             </v-row>
             <v-card class="elevation-12">
@@ -233,7 +262,7 @@
                     login: this.login,
                     password: this.password
                   }
-
+                  this.$router.push('/login')
                   await this.$store.dispatch('auth/login', formData)
                   this.loading = false
                   this.$router.push('/admin/home/')
@@ -253,11 +282,17 @@
         border-radius: 0px
         background-color: #1B7DFF
 
+    .my-v-alert 
+      margin-bottom: 0px
+
     .my-v-alert .v-alert__wrapper
       justify-content: center
       align-items: center
+
     .my-v-alert .v-alert__content
       display: block
       flex: none
       width: 80%
+    
+
 </style>
