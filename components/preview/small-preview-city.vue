@@ -1,7 +1,7 @@
 <template>
     <div class="today-top-city">
         <div class="today-top-city__img" @mouseover="todayTopCity = true" @mouseleave="todayTopCity = false">
-            <img :class="{'today-top-city__img-hover' : todayTopCity}" :src="imgMini" :alt="title">
+            <div class="edit-city__img-card" :style="{ backgroundImage: `url(${imgMini})`, backgroundPosition: 'center', backgroundSize: 'cover' }" :class="{'today-top-city__img-hover' : todayTopCity}"></div>
             <div class="today-top-city__title-mask">
                 <div class="today-top-city__title-mask-text">
                     {{title}}
@@ -72,6 +72,7 @@
         +xs-block
             align-items: center
             margin-bottom: 60px
+            width: 100%
     
     .today-top-city__img
         width: 100%
@@ -106,10 +107,10 @@
         align-content: center
         flex-wrap: wrap
         color: white
-        margin-top: 31px
         user-select: none
         text-transform: uppercase
         background-color: #006DFE
+        margin-top: 30px
         width: 157px
         height: 56px
         cursor: pointer
@@ -117,7 +118,6 @@
         +lgX-block
             width: 118px
             height: 42px
-            margin-top: 41px
     
     .today-top-city__button:hover
         transform: scale(0.9)
@@ -196,4 +196,9 @@
     
     .login__button
         border-radius: 0px
+    
+    .edit-city__img-card
+        width: 100%
+        padding-top: 100%
+        transition-duration: 0.4s
 </style>

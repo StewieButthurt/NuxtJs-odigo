@@ -1,7 +1,7 @@
 <template>
     <div class="main">
         <div class="main__menu">
-            <div class="main__button-logo-wrapper" :class="{'main__button-logo-wrapper-fixed' : statusMenu}">
+            <div class="main__button-logo-wrapper" v-click-outside="onClickOutside" :class="{'main__button-logo-wrapper-fixed' : statusMenu}">
                 <div class="main__button-menu-mobile-wrapper" @click="$emit('clickMenu')">
                     <div class="main__button-menu-mobile">
                         <div class="main__button-menu-mobile-line"></div>
@@ -68,7 +68,12 @@
         },
         props: [
             'statusMenu'
-        ]
+        ],
+        methods: {
+            onClickOutside(event) {
+                this.$emit('onClickOutside')
+            }
+        }
     }
 </script>
 

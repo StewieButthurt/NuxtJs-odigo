@@ -8,6 +8,7 @@
       <app-main 
         :statusMenu="statusMenu"
         @clickMenu="clickMenu()"
+        @onClickOutside="clickMobileMenuLink"
       />
       <app-benefits-odigo />
       <app-get-inspired />
@@ -51,6 +52,10 @@ export default {
       this.statusMenu = !this.statusMenu
     },
     clickMobileMenuLink() {
+      this.statusMenu = false
+    },
+    onClickOutside(event) {
+      console.log(1)
       this.statusMenu = false
     }
   }

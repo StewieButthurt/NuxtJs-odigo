@@ -11,11 +11,7 @@
                     :class="{'large-preview-city__img-click' : clickImg1}"
                     @click="imgClick1()"
                     >
-                    <img 
-                        :src="previewImg1" 
-                        :alt="`${title}-mini`" 
-                        :class="{'large-preview-city__img-hover' : hoverImg1}"
-                    >
+                    <div class="edit-city__img-card" :style="{ backgroundImage: `url(${previewImg1})`, backgroundPosition: 'center', backgroundSize: 'cover' }" :class="{'large-preview-city__img-hover' : hoverImg1}"></div>
                     <span class="large-preview-city__image-mask" 
                         :class="{'large-preview-city__image-mask-disabled' : hoverImg1}"
                     >
@@ -27,11 +23,7 @@
                     :class="{'large-preview-city__img-click' : clickImg2}"
                     @click="imgClick2()"
                     >
-                    <img 
-                        :src="previewImg2" 
-                        :alt="`${title}-mini`" 
-                        :class="{'large-preview-city__img-hover' : hoverImg2}"
-                    >
+                    <div class="edit-city__img-card" :style="{ backgroundImage: `url(${previewImg2})`, backgroundPosition: 'center', backgroundSize: 'cover' }" :class="{'large-preview-city__img-hover' : hoverImg2}"></div>
                     <span class="large-preview-city__image-mask" 
                         :class="{'large-preview-city__image-mask-disabled' : hoverImg2}"
                         >
@@ -43,10 +35,7 @@
                     :class="{'large-preview-city__img-click' : clickImg3}"
                     @click="imgClick3()"
                     >
-                    <img 
-                        :src="previewImg3" 
-                        :alt="`${title}-mini`" 
-                        :class="{'large-preview-city__img-hover' : hoverImg3}">
+                    <div class="edit-city__img-card" :style="{ backgroundImage: `url(${previewImg3})`, backgroundPosition: 'center', backgroundSize: 'cover' }" :class="{'large-preview-city__img-hover' : hoverImg3}"></div>
                     <span class="large-preview-city__image-mask" 
                         :class="{'large-preview-city__image-mask-disabled' : hoverImg3}"
                     >
@@ -207,7 +196,7 @@
         left: 0px
         width: 100%
         height: 100%
-        transition-duration: 3s
+        transition-duration: 2s
 
     .large-preview-city__image-mask-disabled
         background: rgba(0,0,0, 0.0)
@@ -222,5 +211,10 @@
     
     .large-preview-city__about
         width: 215px
+    
+    .edit-city__img-card
+        width: 100%
+        padding-top: 100%
+        transition-duration: 2s
 
 </style>
