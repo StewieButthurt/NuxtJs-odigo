@@ -53,10 +53,6 @@ export default {
     },
     clickMobileMenuLink() {
       this.statusMenu = false
-    },
-    onClickOutside(event) {
-      console.log(1)
-      this.statusMenu = false
     }
   }
 }
