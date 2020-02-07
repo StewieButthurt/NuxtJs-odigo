@@ -137,9 +137,14 @@
         head: {
             title: 'Admin | Add City'
         },
-        middleware: [
-          'admin-auth'
-        ],
+        async validate({ store, redirect, $axios }) {
+            try {
+                await $axios.$get(store.getters['routeMiddleware'])
+                return true
+            } catch(e) {
+                redirect(store.getters['redirectMiddleware'])
+            }
+        },
         components: {
             AppPreview
         },

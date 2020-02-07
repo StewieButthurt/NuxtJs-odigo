@@ -8,7 +8,14 @@
 
 <script>
     export default {
-        middleware: ['admin-auth'],
+        async validate({ store, redirect, $axios }) {
+            try {
+                await $axios.$get(store.getters['routeMiddleware'])
+                return true
+            } catch(e) {
+                redirect(store.getters['redirectMiddleware'])
+            }
+        },
         layout: 'admin',
         head: {
             title: 'Admin | Home'

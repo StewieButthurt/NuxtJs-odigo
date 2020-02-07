@@ -57,9 +57,25 @@
 
     export default {
         layout: 'admin',
-        middleware: [
-            'edit-city'
-        ],
+        async validate({ store, redirect, $axios }) {
+            if(!store.getters['localStorage/title']) {
+		        redirect('/admin/edit-city/')
+            }
+            
+            if(!store.getters['localStorage/descr']) {
+                redirect('/admin/edit-city/')
+            }
+            
+            if(!store.getters['localStorage/id']) {
+                redirect('/admin/edit-city/')
+            }
+            try {
+                await $axios.$get(store.getters['routeMiddleware'])
+                return true
+            } catch(e) {
+                redirect(store.getters['redirectMiddleware'])
+            }
+        },
         head() {
             return {
                 title: `Admin | Edit ${this.title}`

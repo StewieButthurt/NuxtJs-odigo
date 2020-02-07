@@ -1,5 +1,7 @@
 export const state = () => ({
-	error: null
+	error: null,
+	routeMiddleware: '/api/auth/admin/token',
+	redirectMiddleware: '/login?message=login'
 })
 
 export const mutations = {
@@ -18,5 +20,7 @@ export const actions = {
 }
 
 export const getters = {
-	error: state => state.error 
+	error: state => state.error,
+	routeMiddleware: state => state.routeMiddleware,
+	redirectMiddleware: state => state.redirectMiddleware
 }

@@ -81,7 +81,14 @@
             ],
             title: 'Admin | Create User'
         },
-        middleware: ['admin-auth'],
+        async validate({ store, redirect, $axios }) {
+            try {
+                await $axios.$get(store.getters['routeMiddleware'])
+                return true
+            } catch(e) {
+                redirect(store.getters['redirectMiddleware'])
+            }
+        },
         layout: 'admin',
         data() {
             return {

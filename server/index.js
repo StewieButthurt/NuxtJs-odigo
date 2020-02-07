@@ -41,7 +41,7 @@ app.enable('trust proxy');
 
 const apiLimiter = new RateLimit({
   windowMs: 5*60*1000, // 5 minutes
-  max: 150,
+  max: 300,
 });
 
 // использование ограничителя запросов на одном IP
