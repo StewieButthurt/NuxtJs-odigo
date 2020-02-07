@@ -174,15 +174,17 @@
             this.appPreviewStatus = false;
           },
           async updateImg(index) {
+            console.log(this.file[index])
             if(await this.file[index] !== null) {
-              var reader = new FileReader();
+              var readerPreview = new FileReader();
               var vm = this;
 
-              reader.onload = async function(e) {
+
+              readerPreview.onload = async function(e) {
                   vm.previewImg.splice(index, 1, e.target.result)
               }
 
-              await reader.readAsDataURL(this.file[index]);
+              await readerPreview.readAsDataURL(this.file[index]);
             }
           }
         },

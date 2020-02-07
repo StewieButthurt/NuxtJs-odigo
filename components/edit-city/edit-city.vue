@@ -207,10 +207,7 @@
     
     .edit-city__img-card
         width: 100%
-        height: 300px
-        position: absolute
-        left: 0px
-        top: 0px
+        padding-top: 100%
         transition-duration: 0.4s
 
 </style>

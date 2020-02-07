@@ -76,7 +76,6 @@
                     previewImg: this.previewImg,
                     file: this.file
                 }
-
                 this.loading = true
                 try {
                     await this.$store.dispatch('city/createCity', data)

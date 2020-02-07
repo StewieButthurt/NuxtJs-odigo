@@ -1,7 +1,7 @@
 <template>
     <div class="today-top-city">
         <div class="today-top-city__img" @mouseover="todayTopCity = true" @mouseleave="todayTopCity = false">
-            <div class="edit-city__img-card" :style="{ backgroundImage: `url(${imgMini})`, backgroundPosition: 'center', backgroundSize: 'cover' }" :class="{'today-top-city__img-hover' : todayTopCity}"></div>
+            <div class="edit-city__img-card" :style="{ backgroundImage: `url(${imgMini})`, backgroundPosition: 'center center', backgroundSize: 'cover' }" :class="{'today-top-city__img-hover' : todayTopCity}"></div>
             <div class="today-top-city__title-mask">
                 <div class="today-top-city__title-mask-text">
                     {{title}}

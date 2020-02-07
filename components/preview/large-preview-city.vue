@@ -11,7 +11,7 @@
                     :class="{'large-preview-city__img-click' : clickImg1}"
                     @click="imgClick1()"
                     >
-                    <div class="edit-city__img-card" :style="{ backgroundImage: `url(${previewImg1})`, backgroundPosition: 'center', backgroundSize: 'cover' }" :class="{'large-preview-city__img-hover' : hoverImg1}"></div>
+                    <div class="edit-city__img-card-large-preview" :style="{ backgroundImage: `url(${previewImg1})`, backgroundPosition: 'center center', backgroundSize: 'cover' }" :class="{'large-preview-city__img-hover' : hoverImg1}"></div>
                     <span class="large-preview-city__image-mask" 
                         :class="{'large-preview-city__image-mask-disabled' : hoverImg1}"
                     >
@@ -23,7 +23,7 @@
                     :class="{'large-preview-city__img-click' : clickImg2}"
                     @click="imgClick2()"
                     >
-                    <div class="edit-city__img-card" :style="{ backgroundImage: `url(${previewImg2})`, backgroundPosition: 'center', backgroundSize: 'cover' }" :class="{'large-preview-city__img-hover' : hoverImg2}"></div>
+                    <div class="edit-city__img-card-large-preview" :style="{ backgroundImage: `url(${previewImg2})`, backgroundPosition: 'center center', backgroundSize: 'cover' }" :class="{'large-preview-city__img-hover' : hoverImg2}"></div>
                     <span class="large-preview-city__image-mask" 
                         :class="{'large-preview-city__image-mask-disabled' : hoverImg2}"
                         >
@@ -35,7 +35,7 @@
                     :class="{'large-preview-city__img-click' : clickImg3}"
                     @click="imgClick3()"
                     >
-                    <div class="edit-city__img-card" :style="{ backgroundImage: `url(${previewImg3})`, backgroundPosition: 'center', backgroundSize: 'cover' }" :class="{'large-preview-city__img-hover' : hoverImg3}"></div>
+                    <div class="edit-city__img-card-large-preview" :style="{ backgroundImage: `url(${previewImg3})`, backgroundPosition: 'center center', backgroundSize: 'cover' }" :class="{'large-preview-city__img-hover' : hoverImg3}"></div>
                     <span class="large-preview-city__image-mask" 
                         :class="{'large-preview-city__image-mask-disabled' : hoverImg3}"
                     >
@@ -76,7 +76,7 @@
         },
         computed: {
             getBackground() {
-                return 'background-image: url(' + this.mainImgComputed + '); background-size: cover;';
+                return 'background-image: url(' + this.mainImgComputed + '); background-size: cover;  background-position: center center';
             },
             previewImg1() {
                 return this.previewImg[1]
@@ -196,7 +196,7 @@
         left: 0px
         width: 100%
         height: 100%
-        transition-duration: 2s
+        transition-duration: 0.4s
 
     .large-preview-city__image-mask-disabled
         background: rgba(0,0,0, 0.0)
@@ -212,9 +212,9 @@
     .large-preview-city__about
         width: 215px
     
-    .edit-city__img-card
+    .edit-city__img-card-large-preview
         width: 100%
         padding-top: 100%
-        transition-duration: 2s
+        transition-duration: 0.4s
 
 </style>

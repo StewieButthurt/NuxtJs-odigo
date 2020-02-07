@@ -31,9 +31,9 @@ passport.use(passportStrategy)
 
 app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({
-  extended: true, limit: '10mb'
+  extended: true, limit: '20mb'
 }));
-app.use(bodyParser.json( {limit: '10mb'} ));
+app.use(bodyParser.json( {limit: '20mb'} ));
 app.use(cors());
 
 // для apiLimiter

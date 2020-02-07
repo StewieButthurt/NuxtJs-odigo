@@ -13,7 +13,10 @@ module.exports.create = async (req, res) => {
     async function getUrl()  {
         for( let i = 0; i < req.body.previewImg.length; i++) {
             let file = req.body.previewImg[i];
-            file = await file.slice(23)
+            // console.log(req.body.file)
+            // file = await file.slice(23)
+            let n = file.indexOf(',', 0)
+            file = await file.slice(n)
             file = await Buffer.from(file, 'base64')
             file = await Jimp.read(file)
             file = file.quality(60)
