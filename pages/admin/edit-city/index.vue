@@ -19,10 +19,10 @@
         layout: 'admin',
         async validate({ store, redirect, $axios }) {
             try {
-                await $axios.$get(store.getters['routeMiddleware'])
+                await $axios.$get('/api/auth/admin/token')
                 return true
             } catch(e) {
-                redirect(store.getters['redirectMiddleware'])
+                redirect('/login?message=login')
             }
         },
         head: {

@@ -10,6 +10,6 @@
     }
 </script>
 
-<style style="sass">
+<style lang="sass">
 
 </style>
