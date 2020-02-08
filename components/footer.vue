@@ -76,14 +76,12 @@
 
     .footer
         width: 100%
-        min-height: 370px
+        min-height: 220px
         display: flex
         align-content: center
         flex-wrap: wrap
         justify-content: center
         background: #0E1D28
-        +lg-block
-            min-height: 328px
     
     .footer__descr
         +size(10)

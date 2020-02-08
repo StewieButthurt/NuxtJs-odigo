@@ -1,5 +1,5 @@
 <template>
-    <div class="main__menu">
+    <div class="main__menu-city-layots">
             <div class="main__button-logo-wrapper" :class="{'main__button-logo-wrapper-fixed' : statusMenu}" v-click-outside="onClickOutside">
                 <div class="main__button-menu-mobile-wrapper" @click="$emit('clickMenu')">
                     <div class="main__button-menu-mobile">
@@ -15,26 +15,26 @@
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0067 1C39.9064 1 39.0134 1.89813 39.0134 3.00474C39.0134 4.16749 39.9064 5.0576 41.0067 5.00949C42.107 5.00949 43 4.11136 43 3.00474C43 1.89813 42.107 1 41.0067 1ZM14.926 9.17134C15.6436 10.1015 16.1539 11.1681 16.5207 12.3468L16.5366 12.3148C16.8954 13.5016 17.0549 14.7846 17.0549 16.1639C17.0549 17.5512 16.8954 18.8342 16.5446 20.013C16.1778 21.1918 15.6675 22.2743 14.9499 23.1404C14.2323 24.0145 13.3553 24.7281 12.2789 25.2414C11.5613 25.5541 10.7879 25.8107 9.96662 25.915C9.96662 25.915 8.42778 26.1635 6.63378 25.8107C6.01984 25.6984 5.45374 25.5541 4.93547 25.2975C4.88763 25.2975 4.88763 25.2975 4.83979 25.2414C4.83979 25.1932 4.78398 25.1932 4.78398 25.1932H4.74411C4.42518 25.0409 4.17004 24.8885 3.86705 24.68C3.19729 24.2149 2.63119 23.7097 2.11292 23.0923C1.39533 22.2102 0.885036 21.1918 0.518264 19.9649C0.159466 18.7861 0 17.503 0 16.1158C0 14.7846 0.159466 13.4535 0.510291 12.2827C0.877063 11.0478 1.38735 10.0294 2.10495 9.09916C2.82255 8.23312 3.69961 7.51141 4.73614 6.99819C5.69293 6.54913 6.7773 6.2845 8.00519 6.22837C8.83441 6.18026 9.55201 6.22837 10.1101 6.3246L10.8676 6.48498C10.8676 6.54111 10.9234 6.54111 10.9633 6.54111C11.0271 6.59724 11.0749 6.59724 11.1228 6.59724C11.2264 6.59724 11.338 6.6614 11.338 6.6614C11.641 6.74159 11.9998 6.90197 12.2948 7.06234C13.3314 7.56754 14.2084 8.24113 14.926 9.17134ZM35.9835 12.3468C35.6167 11.1681 35.1064 10.1015 34.3888 9.17134C33.6712 8.24113 32.7942 7.56754 31.7576 7.06234C31.4626 6.90197 31.1038 6.74159 30.8009 6.6614C30.8009 6.6614 30.6892 6.59724 30.5856 6.59724C30.5377 6.59724 30.4819 6.59724 30.4261 6.54111C30.3783 6.54111 30.3304 6.54111 30.3304 6.48498L29.565 6.3246C29.0069 6.22837 28.2893 6.18026 27.468 6.22837C26.2401 6.2845 25.1558 6.54913 24.199 6.99819C23.1624 7.51141 22.2854 8.23312 21.5678 9.09916C20.8502 10.0294 20.3399 11.0478 19.9731 12.2827C19.6223 13.4535 19.4628 14.7846 19.4628 16.1158C19.4628 17.503 19.6223 18.7861 19.9811 19.9649C20.3479 21.1437 20.906 22.2102 21.5757 23.0923C22.094 23.7097 22.6521 24.2149 23.3299 24.68C23.6329 24.8885 24.2468 25.1932 24.2468 25.1932C24.2468 25.1932 24.2946 25.1932 24.2946 25.2414C24.3288 25.2414 24.3447 25.2575 24.3594 25.2724C24.3722 25.2854 24.3841 25.2975 24.4063 25.2975C24.9245 25.5541 25.4827 25.6984 26.1046 25.8107C27.8986 26.1635 29.4374 25.915 29.4374 25.915C30.2587 25.8107 31.0321 25.5541 31.7497 25.2414C32.8261 24.7281 33.6952 24.0145 34.4207 23.1404C35.1383 22.2743 35.6486 21.1918 36.0154 20.013C36.3662 18.8342 36.5177 17.5512 36.5177 16.1639C36.5177 14.7846 36.3184 13.5016 36.0074 12.3148L35.9835 12.3468ZM23.9677 13.4695C24.175 12.6676 24.4302 11.8898 24.789 11.2723C25.1478 10.6629 25.6102 10.1497 26.1205 9.79681C26.6388 9.43596 27.2527 9.23549 27.9145 9.23549C28.5843 9.23549 29.1504 9.37983 29.6686 9.74068C30.1789 10.0935 30.5856 10.5426 30.9444 11.1199C31.3032 11.7374 31.5583 12.403 31.7656 13.2209C31.9809 14.0389 32.0846 14.8648 32.0846 15.787V16.0917C32.0846 17.0139 31.9809 17.9361 31.8294 18.754C31.6221 19.58 31.367 20.2937 31.0082 20.9191C30.6494 21.5286 30.1869 21.9857 29.6686 22.3465C29.1584 22.7074 28.5524 22.8597 27.8747 22.8597C27.2049 22.8597 26.5989 22.6993 26.0807 22.3465C25.5624 21.9857 25.0999 21.5286 24.7411 20.9031C24.3744 20.2937 24.1192 19.58 23.9119 18.754C23.7126 17.9361 23.6568 17.0139 23.6568 16.0917C23.7126 15.2096 23.8162 14.2955 23.9757 13.4775L23.9677 13.4695ZM4.56073 13.4695C4.76006 12.6676 5.0152 11.8898 5.374 11.2723C5.7328 10.6629 6.19525 10.1497 6.71352 9.79681C7.22381 9.43596 7.82978 9.23549 8.50751 9.23549C9.17727 9.23549 9.74337 9.37983 10.2616 9.74068C10.764 10.0935 11.1786 10.5426 11.5374 11.1199C11.8962 11.7374 12.1513 12.403 12.3586 13.2209C12.5659 14.0389 12.6775 14.8648 12.6775 15.787L12.6616 16.0917C12.6616 17.0139 12.5659 17.9361 12.4065 18.754C12.2071 19.58 11.944 20.2937 11.5852 20.9191C11.2344 21.5286 10.7719 21.9857 10.2616 22.3465C9.75134 22.7074 9.12943 22.8597 8.46764 22.8597C7.78991 22.8597 7.17597 22.6993 6.6577 22.3465C6.14741 21.9857 5.68496 21.5286 5.32616 20.9031C5.00723 20.3979 4.76803 19.6842 4.55275 18.8182C4.34545 17.9922 4.28963 17.054 4.28963 16.1398C4.28963 15.2176 4.34545 14.2955 4.54478 13.4775L4.56073 13.4695Z" fill="white"/>
                 </svg>
             </div>
-            <div class="main__menu-links" :class="{'main__menu-links-width' : statusMenu}">
-                <a href="#" class="main__menu-link" @mouseover="borderLinkArticles = true" @mouseleave="borderLinkArticles = false" v-scroll-to="'#Articles'">
+            <div class="main__menu-city-layots-links" :class="{'main__menu-city-layots-links-width' : statusMenu}">
+                <a href="#" class="main__menu-city-layots-link" @mouseover="borderLinkArticles = true" @mouseleave="borderLinkArticles = false" v-scroll-to="'#Articles'">
                     Articles
-                    <div class="main__menu-links-border" :class="{'main__menu-links-border-animation' : borderLinkArticles === true, 'main__menu-links-border-animation-leave' : borderLinkArticles === false}">
+                    <div class="main__menu-city-layots-links-border" :class="{'main__menu-city-layots-links-border-animation' : borderLinkArticles === true, 'main__menu-city-layots-links-border-animation-leave' : borderLinkArticles === false}">
                     </div>
                 </a>
-                <a href="#" class="main__menu-link" @mouseover="borderLinkLocations = true" @mouseleave="borderLinkLocations = false" v-scroll-to="'#Locations'">
+                <a href="#" class="main__menu-city-layots-link" @mouseover="borderLinkLocations = true" @mouseleave="borderLinkLocations = false" v-scroll-to="'#Locations'">
                     Locations
-                    <div class="main__menu-links-border" :class="{'main__menu-links-border-animation' : borderLinkLocations, 'main__menu-links-border-animation-leave' : borderLinkLocations === false}">
+                    <div class="main__menu-city-layots-links-border" :class="{'main__menu-city-layots-links-border-animation' : borderLinkLocations, 'main__menu-city-layots-links-border-animation-leave' : borderLinkLocations === false}">
                     </div>
                 </a>
-                <a href="#" class="main__menu-link" @mouseover="borderLinkVideos = true" @mouseleave="borderLinkVideos = false" v-scroll-to="'#Videos'">
+                <a href="#" class="main__menu-city-layots-link" @mouseover="borderLinkVideos = true" @mouseleave="borderLinkVideos = false" v-scroll-to="'#Videos'">
                     Videos
-                    <div class="main__menu-links-border" :class="{'main__menu-links-border-animation' : borderLinkVideos, 'main__menu-links-border-animation-leave' : borderLinkVideos === false}">
+                    <div class="main__menu-city-layots-links-border" :class="{'main__menu-city-layots-links-border-animation' : borderLinkVideos, 'main__menu-city-layots-links-border-animation-leave' : borderLinkVideos === false}">
                     </div>
                 </a>
                 <span @mouseover="borderLinkSignIn = true" @mouseleave="borderLinkSignIn = false">
-                    <nuxt-link no-prefetch to="/admin/home/" class="main__menu-link">
+                    <nuxt-link no-prefetch to="/admin/home/" class="main__menu-city-layots-link">
                         Sign in
-                        <div class="main__menu-links-border" :class="{'main__menu-links-border-animation' : borderLinkSignIn, 'main__menu-links-border-animation-leave' : borderLinkSignIn === false}">
+                        <div class="main__menu-city-layots-links-border" :class="{'main__menu-city-layots-links-border-animation' : borderLinkSignIn, 'main__menu-city-layots-links-border-animation-leave' : borderLinkSignIn === false}">
                         </div>
                     </nuxt-link>
                 </span>
@@ -69,7 +69,7 @@
 <style lang="sass">
     @import "~/assets/smart-grid.sass"
 
-    .main__menu
+    .main__menu-city-layots
         margin-top: 56px
         width: 100%
         display: flex
@@ -83,7 +83,7 @@
             justify-content: space-between
             padding-left: 25px
     
-    .main__menu svg
+    .main__menu-city-layots svg
         width: 113px
         height: 41px
         stroke: black
@@ -95,7 +95,7 @@
             margin-left: 47px
 
 
-    .main__menu-links
+    .main__menu-city-layots-links
         font-size: 24px
         width: 100%
         justify-content: flex-end
@@ -107,10 +107,10 @@
         +md-block
             display: none
 
-    .main__menu-links-width
+    .main__menu-city-layots-links-width
         width: 100%
 
-    .main__menu-link
+    .main__menu-city-layots-link
         color: #FFFFFF
         margin-left: 40px
         margin-right: 40px
@@ -126,17 +126,17 @@
             margin-left: 30px
             margin-right: 30px
      
-    .main__menu-links-border
+    .main__menu-city-layots-links-border
         margin-top: 1px
         height: 1px
         width: 0px
         background-color: white
     
-    .main__menu-links-border-animation
+    .main__menu-city-layots-links-border-animation
         width: 100%
         transition: width 0.3s
     
-    .main__menu-links-border-animation-leave
+    .main__menu-city-layots-links-border-animation-leave
         width: 0px
         transition: width 0.3s
     
