@@ -1,14 +1,21 @@
 export const state = () => ({
-    city: []
+	city: [],
+	onCity: []
 })
 
 export const mutations = {
 	setCity(state, city) {
 		state.city = city
+	},
+	searchCity(state, data) {
+		state.onCity.push(data)
 	}
 }
 
 export const actions = {
+	async searchCity({commit}, data) {
+		await commit('searchCity', data)
+	},
 	async setCity({commit}) {
         try {
 			let city = await this.$axios.$get('/api/city')
@@ -41,5 +48,6 @@ export const actions = {
 }
 
 export const getters = {
-	city: state => state.city
+	city: state => state.city,
+	onCity: state => state.onCity
 }

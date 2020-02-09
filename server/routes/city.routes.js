@@ -13,6 +13,11 @@ router.post(
 )
 
 router.post(
+    '/search-on-city',
+    ctr.searchCity
+)
+
+router.post(
     '/admin/update-city',
     passport.authenticate('jwt', { session: false }),
     ctr.updateCity

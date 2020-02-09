@@ -93,3 +93,14 @@ module.exports.remove = async (req, res) => {
         res.status(500).json(e)
     }
 }
+
+module.exports.searchCity = async (req, res) => {
+    
+    try {
+        const city = await City.findOne({title: req.body.url})
+        res.json(city)
+    } catch (e) {
+        console.log(400)
+        res.status(400).json(e)
+    }
+}   
