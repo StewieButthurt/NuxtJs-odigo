@@ -1,9 +1,9 @@
 <template>
-    <div class="large-preview-city" v-click-outside="clickOutside">
+    <div class="large-preview-city">
         <div class="large-preview-city__title">
             <span>{{title}}</span>
         </div>
-        <div class="large-preview-city__images">
+        <div class="large-preview-city__images" v-click-outside="clickOutside">
             <div class="large-preview-city__images-list">
                 <div class="large-preview-city__image large-preview-city__image-mrb" 
                     @mouseover="hoverImg1 = true" 
@@ -141,6 +141,7 @@
         align-items: center
         +size(10)
         margin-bottom: 40px
+        +size-md(9)
         +size-xs(12)
 
     .large-preview-city__title
@@ -154,7 +155,8 @@
     .large-preview-city__images
         display: flex
         width: 100%
-        margin-top: 50px
+        margin-top: 30px
+        background-color: #F2F2F2
     
     .large-preview-city__images-list
         +size(4)
@@ -206,15 +208,19 @@
     
     .large-preview-city__descr
         text-align: center
+        font-size: 18px
         margin-top: 30px
+        font-weight: 300
         +size(10)
+        +lg-block
+            font-size: 16px
     
     .large-preview-city__about
         width: 215px
     
     .edit-city__img-card-large-preview
         width: 100%
-        padding-top: 100%
+        padding-top: 56%
         transition-duration: 0.4s
 
 </style>

@@ -13,7 +13,8 @@ const keys = require('./keys')
 const { Nuxt, Builder } = require('nuxt')
 
 const authRoutes = require('./routes/auth.routes');
-const cityRoutes = require('./routes/city.routes')
+const cityRoutes = require('./routes/city.routes');
+const formRoutes = require('./routes/form.routes');
 
 const app = express()
 
@@ -48,7 +49,7 @@ const apiLimiter = new RateLimit({
 app.use(apiLimiter)
 app.use('/api/auth', authRoutes)
 app.use('/api/city', cityRoutes)
-// app.use('/api/form', formRoutes)
+app.use('/api/form', formRoutes)
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')

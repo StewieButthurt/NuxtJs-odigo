@@ -46,10 +46,19 @@ module.exports = {
   modules: [
     'nuxt-lazy-load',
     '@nuxtjs/axios',
-    'nuxt-vuex-localstorage'
+    'nuxt-vuex-localstorage',
+    '@nuxtjs/recaptcha',
   ],
   axios: {
     baseURL: process.env.BASE_URL || 'http://localhost:3000'
+  },
+  recaptcha: {
+    // hideBadge: false, 
+    language: 'ru',
+    // siteKey: process.env.SITE_KEY, 
+    siteKey: '6LdjR9cUAAAAAHKeibDYlciyXLwHG1XG9yeU-LVB', 
+    version: 2,
+    size: 'normal'
   },
   /*
   ** Build configuration

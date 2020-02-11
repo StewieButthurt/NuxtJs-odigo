@@ -8,6 +8,7 @@ export const mutations = {
 		state.city = city
 	},
 	searchCity(state, data) {
+		state.onCity = []
 		state.onCity.push(data)
 	}
 }
