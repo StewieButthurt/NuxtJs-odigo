@@ -2,6 +2,7 @@ const {Router} = require('express')
 const validator = require('validator');
 const request = require('request');
 const nodemailer = require('nodemailer');
+const keys = require('../keys')
 
 module.exports.newApplication = async (req, res) => {
     if (!req.body.recaptchaToken) {
@@ -11,7 +12,7 @@ module.exports.newApplication = async (req, res) => {
             uri: "https://www.google.com/recaptcha/api/siteverify",
             json: true,
             form: {
-                secret: '6LdjR9cUAAAAAMU5tm8mZPMOKvKAf0Dpz0a3_l6X',
+                secret: keys.recaptchaSecret,
                 response: req.body.recaptchaToken
             }
         };
@@ -51,8 +52,8 @@ module.exports.newApplication = async (req, res) => {
                                     port: 465,
                                     secure: true,
                                     auth: {
-                                        user: "ckotieika@mail.ru",
-                                        pass: "Iron1996"
+                                        user: keys.smtpTransportLogin,
+                                        pass: keys.smtpTransportPassword
                                     }
                                 });
                             } catch (e) {
@@ -62,7 +63,7 @@ module.exports.newApplication = async (req, res) => {
 
                             let mailOptions = {
                                 from: 'ckotieika@mail.ru',
-                                to: 'bflame13@mail.ru',
+                                to: 'nosoff.slawa@yandex.ru',
                                 subject: 'Заказ на Odigo',
                                 text: 'Заказ на Odigo',
                                 html: output
