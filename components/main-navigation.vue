@@ -110,7 +110,7 @@
     .main__menu-city-layots-links-width
         width: 100%
 
-    .main__menu-city-layots-link
+    #container-odigo .main__menu-city-layots-link
         color: #FFFFFF
         margin-left: 40px
         margin-right: 40px

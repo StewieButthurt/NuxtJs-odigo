@@ -120,14 +120,14 @@
             justify-content: flex-start
             align-items: start
 
-    .footer__descr-link
+    #container-odigo .footer__descr-link
         font-size: 16px
         text-decoration: none
         color: #cccccc
         margin-top: 1.5px
         margin-bottom: 1.5px
     
-    .footer__descr-link:hover
+    #container-odigo .footer__descr-link:hover
         color: white
     
     .footer__descr-links-element

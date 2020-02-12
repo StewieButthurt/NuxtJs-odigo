@@ -7,10 +7,10 @@
             :title="title"
             :img="previewImg[0]"
             :descr="descr"
-            :seeMoreButton="seeMoreButton"
+            :seeMoreButton="false"
         />
         <div class="admin-preview__text">
-            Detailed description of the city
+            Detailed description of the place
         </div>
         <app-large-preview-city 
             :title="title"
@@ -55,8 +55,7 @@
         ],
         data() {
             return {
-                loading: false,
-                seeMoreButton: true
+                loading: false
             }
         },
         components: {

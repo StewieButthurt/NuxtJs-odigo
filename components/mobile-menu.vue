@@ -1,7 +1,7 @@
 <template>
     <div class="mobile-menu" :class="{'mobile-menu-disabled' : statusMenu}">
         <div class="mobile-menu__links">
-            <a href="#" class="mobile-menu__link" v-scroll-to="'#Articles'"  @click="$emit('clickMobileMenuLink')">Articles</a>
+            <a href="#"  class="mobile-menu__link" v-scroll-to="'#Articles'"  @click="$emit('clickMobileMenuLink')">Articles</a>
             <a href="#" class="mobile-menu__link" v-scroll-to="'#Locations'" @click="$emit('clickMobileMenuLink')">Locations</a>
             <a href="#" class="mobile-menu__link" v-scroll-to="'#Videos'" @click="$emit('clickMobileMenuLink')">Videos</a>
             <nuxt-link no-prefetch to="/admin/home" class="mobile-menu__link">Sign in</nuxt-link>
@@ -44,7 +44,7 @@
         +lg-block
             padding-left: 74px
 
-    .mobile-menu__link
+    #container-odigo .mobile-menu__link
         user-select: none
         text-decoration: none
         color: #b5b2b2
@@ -54,12 +54,12 @@
         +lgX-block
             font-size: 18px
         
-    .mobile-menu__link:hover
+    #container-odigo .mobile-menu__link:hover
         color: white
         +xs-block
             color: #b5b2b2
 
-    .mobile-menu__link:active
+    #container-odigo .mobile-menu__link:active
         +xs-block
             color: white
 </style>

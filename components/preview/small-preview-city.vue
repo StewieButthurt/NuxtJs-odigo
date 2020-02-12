@@ -1,32 +1,42 @@
 <template>
-    <div class="today-top-city">
-        <div class="today-top-city__img" @mouseover="todayTopCity = true" @mouseleave="todayTopCity = false">
-            <div class="edit-city__img-card" :style="{ backgroundImage: `url(${imgMini})`, backgroundPosition: 'center center', backgroundSize: 'cover' }" :class="{'today-top-city__img-hover' : todayTopCity}"></div>
-            <div class="today-top-city__title-mask">
-                <div class="today-top-city__title-mask-text">
-                    {{title}}
+    <v-lazy
+        v-model="isActive"
+        :options="{
+            threshold: .5
+        }"
+        class="lazy-today-top-city"
+        transition="fade-transition"
+    >
+        <div class="today-top-city">
+            <div class="today-top-city__img" @click="seeMore()" @mouseover="todayTopCity = true" @mouseleave="todayTopCity = false">
+                <div class="edit-city__img-card" :style="{ backgroundImage: `url(${imgMini})`, backgroundPosition: 'center center', backgroundSize: 'cover' }" :class="{'today-top-city__img-hover' : todayTopCity}"></div>
+                <div class="today-top-city__title-mask">
+                    <div class="today-top-city__title-mask-text">
+                        {{title}}
+                    </div>
                 </div>
             </div>
+            <div class="today-top-city__descr">
+                {{descrSmall}}
+            </div>
+            <v-spacer />
+            <v-row>
+                <v-col cols="12" sm="6" md="6">
+                    <div class="today-top-city__button" @click="seeMore()">
+                        <span>see more</span>
+                    </div>
+                </v-col>
+            </v-row>
         </div>
-        <div class="today-top-city__descr">
-            {{descrSmall}}
-        </div>
-        <v-spacer />
-        <v-row>
-            <v-col cols="12" sm="6" md="6">
-                <div class="today-top-city__button">
-                    <span>see more</span>
-                </div>
-            </v-col>
-        </v-row>
-    </div>
+    </v-lazy>
 </template>
 
 <script>
     export default {
         data() {
             return {
-                todayTopCity: false
+                todayTopCity: false,
+                isActive: false
             }
         },
         props: [
@@ -51,6 +61,13 @@
             imgMini() {
                 return this.img
             }
+        },
+        methods: {
+            seeMore() {
+                if(this.seeMoreButton) {
+                    this.$router.push(`/${this.title}`)
+                }
+            }
         }
     }
 </script>
@@ -59,6 +76,13 @@
     @import "~/assets/smart-grid.sass"
 
     .today-top-city
+        width: 100%
+        display: flex
+        flex-direction: column
+        +xs-block
+            align-items: center
+        
+    .lazy-today-top-city
         +size(3.6)
         +size-md(5.8)
         +size-xs(12)

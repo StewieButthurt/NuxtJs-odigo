@@ -13,7 +13,7 @@
                 :title="item.title"
                 :img="item.previewImg[0]"
                 :descr="item.descr"
-                :seeMoreButton="false"
+                :seeMoreButton="true"
             />
         </div>
     </div>
@@ -66,4 +66,9 @@
         +lgX-block
             padding-top: 32px
             padding-bottom: 29px
+    
+    .today-top-places__button-loader
+        width: 100%
+        display: flex
+        justify-content: center
 </style>

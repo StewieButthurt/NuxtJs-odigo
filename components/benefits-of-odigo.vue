@@ -238,6 +238,7 @@
         margin-bottom: 55px
         display: flex
         flex-direction: column
+        justify-content: space-between
         +size(3.5)
         +size-md(5)
         +size-ms(7)

@@ -30,7 +30,7 @@
                     </div>
                     <div class="on-city__form-buttons mt-5">
                             <v-btn @click="onOrder()" :loading="buttonLoading" :disabled="buttonDisabled" class="mr-2" color="primary" small>Book Now</v-btn>
-                            <v-btn :disabled="buttonLoading" nuxt to="/" small>Back to main</v-btn>
+                            <v-btn :disabled="buttonLoading" @click="clickBackButtons()" small>Back to main</v-btn>
                     </div>
                     <div key="recaptcha" class="form__recaptcha">
                             <recaptcha
@@ -171,7 +171,10 @@
             },
             clickButtonDialogs() {
                 this.loadingButtonDialog = true
-                this.$router.push('/')
+                this.$router.back()
+            },
+            clickBackButtons() {
+                this.$router.back()
             }
         },
         async validate({ store, route, redirect, $axios }) {

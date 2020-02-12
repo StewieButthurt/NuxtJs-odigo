@@ -1,21 +1,23 @@
 <template>
   <div class="container-odigo">
-    <div class="wrapper">
-      <app-mobile-menu 
+    <v-app id="container-odigo">
+      <div class="wrapper">
+        <app-mobile-menu 
+            :statusMenu="statusMenu"
+            @clickMobileMenuLink="clickMobileMenuLink()"
+        />
+        <app-main 
           :statusMenu="statusMenu"
-          @clickMobileMenuLink="clickMobileMenuLink()"
-      />
-      <app-main 
-        :statusMenu="statusMenu"
-        @clickMenu="clickMenu()"
-        @onClickOutside="clickMobileMenuLink"
-      />
-      <app-benefits-odigo />
-      <app-get-inspired />
-      <app-today-top-places />
-      <app-video />
-      <app-footer />
-    </div>
+          @clickMenu="clickMenu()"
+          @onClickOutside="clickMobileMenuLink"
+        />
+        <app-benefits-odigo />
+        <app-get-inspired />
+        <app-today-top-places />
+        <app-video />
+        <app-footer />
+      </div>
+    </v-app>
   </div>
 </template>
 
@@ -75,5 +77,8 @@ export default {
     font-family: 'Lato-Regular', sans-serif
     font-weight: 500
     background-color: white
+  
+  .v-application a
+    color: white
 
 </style>
