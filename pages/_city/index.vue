@@ -25,7 +25,7 @@
                         </div>
                         <div class="on-city__form-input">
                             <v-icon class="mr-3 pb-3">smartphone</v-icon>
-                            <v-text-field @cnange="validatePhone"  :error="validatePhoneError" type="text" label="Phone" v-model="phone" hide-details="auto" ></v-text-field>
+                            <v-text-field @cnange="validatePhone"  :error="validatePhoneError" :error-messages="phoneErrorMassage" type="text" label="Phone" v-model="phone" hide-details="auto" ></v-text-field>
                         </div>
                     </div>
                     <div class="on-city__form-buttons mt-5">
@@ -43,6 +43,31 @@
                 <span class="on-city__form-wrapper-mask">
                 </span>
             </div>
+            <v-dialog
+                v-model="checkStatusServerError"
+                max-width="370"
+            >
+                <v-card>
+                    <v-card-title class="headline">Your application is accepted!</v-card-title>
+                    <v-card-text >
+                        Our manager will contact you shortly
+                    </v-card-text>
+        
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+            
+                        <v-btn
+                        color="primary"
+                        small
+                        text
+                        :loading="loadingButtonDialog"
+                        @click="clickButtonDialogs()"
+                        >
+                        Ok.
+                        </v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
         </div>
     </v-app>
 </template>
@@ -73,12 +98,15 @@
                 emailErrorMassage: null,
                 phone: '',
                 phoneStatus: null,
+                phoneErrorMassage: null,
                 name: '',
                 nameStatus: null,
                 nameErrorMassage: null,
                 captchaStatus: null,
                 recaptchaToken: null,
-                buttonLoading: false
+                buttonLoading: false,
+                statusServerError: null,
+                loadingButtonDialog: false
             }
         },
         methods: {
@@ -103,26 +131,47 @@
                             title: this.city[0].title,
                             recaptchaToken: this.recaptchaToken,
                         }
-
+                        
                         this.buttonLoading = true
 
                         try {
                             await this.$axios.post('/api/form', data)
+                                .then((response) => {
+                                    if(response.data.message === "Name error") {
+                                        this.nameErrorMassage = 'The name must contain latin letters and be longer than 3 characters'
+                                        this.captchaStatus = false
+                                    } 
+                                    
+                                    if(response.data.message === "Email error") {
+                                        this.emailErrorMassage = "Enter mail in the format 'example@example.com'"
+                                        this.captchaStatus = false
+                                    } 
+                                    
+                                    if(response.data.message === "Phone error") {
+                                        this.phoneErrorMassage = 'The number must be at least 6 digits and consist of digits'
+                                        this.captchaStatus = false
+                                    } 
+                                    
+                                    if(response.data.message === "recaptcha and form ok"){
+                                        this.emailStatus = null
+                                        this.nameStatus = null
+                                        this.phoneStatus = null
+                                        this.statusServerError = true
+                                        
+                                    }
+
+                                })
                             this.buttonLoading = false
                         } catch(e) {
-
-                            if(e.message === 'Name error') {
-                                this.nameErrorMassage = false
-                            }
-
-                            if(e.message === 'Email error') {
-                                this.EmailErrorMassage = false
-                            }
-
+                            console.log(e)
                             this.buttonLoading = false
                         }
                     }
                 }  
+            },
+            clickButtonDialogs() {
+                this.loadingButtonDialog = true
+                this.$router.push('/')
             }
         },
         async validate({ store, route, redirect, $axios }) {
@@ -204,10 +253,13 @@
             },
             validatePhone() {
                 if(isMobilePhone(this.phone)) {
+                    this.phoneErrorMassage = null
                     return  'validate'
                 } else if(this.phone === ''){
+                    this.phoneErrorMassage = null
                     return 'noChange'
                 } else {
+                    this.phoneErrorMassage = 'The number must be at least 6 digits and consist of digits'
                     return 'noValidate'
                 }
             },
@@ -239,6 +291,15 @@
                     return false
                 } else {
                     return true
+                }
+            },
+            checkStatusServerError() {
+                if(this.statusServerError === true) {
+                    return true
+                } else if(this.statusServerError === null){
+                    return false
+                } else {
+                    return false
                 }
             }
         }

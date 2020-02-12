@@ -78,13 +78,13 @@ module.exports.newApplication = async (req, res) => {
                                 }
                             })
                         } else {
-                            return res.status(400).json({ message: "Name error" });
+                            return res.status(200).json({ message: "Name error" });
                         }
                     } else {
-                        return res.status(400).json({ message: "Phone error" });
+                        return res.status(200).json({ message: "Phone error" });
                     }
                 } else {
-                    return res.status(400).json({ message: "Email error" });
+                    return res.status(200).json({ message: "Email error" });
                 }
             }
         })
