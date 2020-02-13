@@ -123,6 +123,7 @@
             font-size: 16px
         +xs-block
             text-align: center
+            min-height: inherit
 
 
     .today-top-city__button
@@ -142,6 +143,10 @@
         +lgX-block
             width: 118px
             height: 42px
+        +lg-block
+            margin-top: 0px
+        +md-block
+            margin-top: 15px
     
     .today-top-city__button:hover
         transform: scale(0.9)

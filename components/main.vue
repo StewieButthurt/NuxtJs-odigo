@@ -10,7 +10,7 @@
             <h3>Jump off balcony, onto stranger's head. Chase ball of string hide when guests
              come over. Being gorgeous with belly side up i could pee on this if i had the
              energy but under the bed, for attack the child, open the door</h3>
-             <div class="main__button">
+             <div class="main__button" v-scroll-to="'#Locations'">
                 <span>select</span>
             </div>
         </div>

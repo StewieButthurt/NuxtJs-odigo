@@ -8,7 +8,7 @@
         </div>
         <div class="get-inspired__cityes-wrapper">
             <div class="get-inspired__cityes full" @mouseover="mountFuji = true" @mouseleave="mountFuji = false">
-                <div class="get-inspired__cityes-width">
+                <div class="get-inspired__cityes-width" @click="clickImg('/Mount Fuji')">
                     <div class="get-inspired__cityes-padding-bottom 
                                 get-inspired__cityes-padding-bottom-full">
                         <div class="get-inspired__cityes-position" :class="{'get-inspired__cityes-position-hover' : mountFuji}">
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="get-inspired__cityes full" @mouseover="kyoto = true" @mouseleave="kyoto = false">
-                <div class="get-inspired__cityes-width">
+                <div class="get-inspired__cityes-width" @click="clickImg('/Kyoto')">
                     <div class="get-inspired__cityes-padding-bottom 
                                 get-inspired__cityes-padding-bottom-full">
                         <div class="get-inspired__cityes-position" :class="{'get-inspired__cityes-position-hover' : kyoto}">
@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="get-inspired__cityes small" @mouseover="tokyo = true" @mouseleave="tokyo = false">
-                <div class="get-inspired__cityes-width">
+                <div class="get-inspired__cityes-width" @click="clickImg('/Tokyo')">
                     <div class="get-inspired__cityes-padding-bottom">
                         <div class="get-inspired__cityes-position" :class="{'get-inspired__cityes-position-hover' : tokyo}">
                             <img src="~/assets/tokyo.png" alt="tokyo">
@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="get-inspired__cityes small" @mouseover="nigata = true" @mouseleave="nigata = false">
-                <div class="get-inspired__cityes-width">
+                <div class="get-inspired__cityes-width" @click="clickImg('/Niigata')">
                     <div class="get-inspired__cityes-padding-bottom">
                         <div class="get-inspired__cityes-position" :class="{'get-inspired__cityes-position-hover' : nigata}">
                             <img src="~/assets/nigata.png" alt="nigata">
@@ -60,13 +60,13 @@
                         <div class="get-inspired__cityes-mask">
                         </div>
                         <div class="get-inspired__cityes-title">
-                            Nigata
+                            Niigata
                         </div>
                     </div>
                 </div>
             </div>
             <div class="get-inspired__cityes small" @mouseover="sapporo = true" @mouseleave="sapporo = false">
-                <div class="get-inspired__cityes-width">
+                <div class="get-inspired__cityes-width" @click="clickImg('/Sapporo')">
                     <div class="get-inspired__cityes-padding-bottom">
                         <div class="get-inspired__cityes-position" :class="{'get-inspired__cityes-position-hover' : sapporo}">
                             <img src="~/assets/sapporo.png" alt="sapporo">
@@ -156,6 +156,11 @@
                 sapporo: false,
                 getInspiredPrefectureLink: false,
                 getInspiredKyotosLink: false
+            }
+        },
+        methods: {
+            clickImg(path) {
+                this.$router.push(path)
             }
         }
     }
