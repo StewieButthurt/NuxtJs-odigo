@@ -276,7 +276,6 @@
 </script>
 
 <style lang="sass">
-    @import "~/assets/smart-grid.sass"
 
     .login__button
         border-radius: 0px

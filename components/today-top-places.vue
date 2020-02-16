@@ -41,7 +41,6 @@
 </script>
 
 <style lang="sass">
-    @import "~/assets/smart-grid.sass"
 
     .today-top-places
         width: 100%

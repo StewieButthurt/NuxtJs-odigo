@@ -51,7 +51,6 @@
 </script>
 
 <style lang="sass">
-    @import "~/assets/smart-grid.sass"
 
     .today-top-city
         +size(3.6)

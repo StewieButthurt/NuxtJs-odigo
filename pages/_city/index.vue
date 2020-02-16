@@ -32,7 +32,7 @@
                             <v-btn @click="onOrder()" :loading="buttonLoading" :disabled="buttonDisabled" class="mr-2" color="primary" small>Book Now</v-btn>
                             <v-btn :disabled="buttonLoading" @click="clickBackButtons()" small>Back to main</v-btn>
                     </div>
-                    <div key="recaptcha" class="form__recaptcha">
+                    <div key="recaptcha" style="transform:scale(0.77)" class="form__recaptcha">
                             <recaptcha
                                 @error="onError"
                                 @success="register"
@@ -86,6 +86,10 @@
         head() {
             return {
                 title: `Odigo | ${this.city[0].title}`,
+                meta: [
+                    {hid: `places-description-${this.city[0].title}`, name: 'description', content: `${this.city[0].title}`},
+                    {hid: `places-keywords-${this.city[0].title}`, name: 'keywords', content: ` ${this.city[0].title}, best trips, japan, travel, places in japan, tours`},
+                ],
                 link: [
                     {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'}
                 ]
@@ -311,7 +315,6 @@
 
 <style lang="sass" scoped>
 
-    @import "~/assets/smart-grid.sass"
 
     .on-city
         display: flex
@@ -379,7 +382,5 @@
         margin: 0 auto
         margin-top: 30px
         margin-bottom: 30px
-    
-    
     
 </style>

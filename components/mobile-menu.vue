@@ -18,7 +18,6 @@
 </script>
 
 <style lang="sass">
-    @import "~/assets/smart-grid.sass"
 
     .mobile-menu
         position: fixed

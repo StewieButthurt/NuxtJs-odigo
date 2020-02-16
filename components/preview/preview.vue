@@ -89,7 +89,6 @@
 </script>
 
 <style lang="sass">
-    @import "~/assets/smart-grid.sass"
 
     .admin-preview
         width: 100%

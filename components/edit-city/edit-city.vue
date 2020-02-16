@@ -121,7 +121,6 @@
 </script>
 
 <style lang="sass">
-    @import "~/assets/smart-grid.sass"
  
     .edit-city__card-city
         margin: 30px 30px 20px 30px

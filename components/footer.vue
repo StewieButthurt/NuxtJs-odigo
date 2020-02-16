@@ -72,7 +72,6 @@
 </script>
 
 <style lang="sass">
-    @import "~/assets/smart-grid.sass"
 
     .footer
         width: 100%
@@ -81,6 +80,7 @@
         align-content: center
         flex-wrap: wrap
         justify-content: center
+        align-items: center
         background: #0E1D28
     
     .footer__descr

@@ -10,9 +10,7 @@
             <h3>Jump off balcony, onto stranger's head. Chase ball of string hide when guests
              come over. Being gorgeous with belly side up i could pee on this if i had the
              energy but under the bed, for attack the child, open the door</h3>
-             <div class="main__button" v-scroll-to="'#Locations'">
-                <span>select</span>
-            </div>
+            <v-btn  id="main__button" class="white--text" v-scroll-to="'#Locations'">select</v-btn>
         </div>
     </div>
 </template>
@@ -40,7 +38,6 @@
 </script>
 
 <style lang="sass">
-    @import "~/assets/smart-grid.sass"
 
     .main 
         width: 100%
@@ -54,6 +51,10 @@
         font-weight: 500
         min-height: 962px
         position: relative
+        +md-block
+            min-height: 830px
+        +xs-block
+            min-height: 680px
 
     .main__descr
         +size(8)
@@ -104,22 +105,14 @@
         +xs-block
             font-size: 13px
     
-    .main__button
-        display: flex
+    #main__button
         width: 228px
         height: 77px
-        justify-content: center
-        align-content: center
-        flex-wrap: wrap
         background-color: #1B7DFF
-        color: white
         font-size: 32px
-        text-transform: uppercase
         margin-top: 69px
-        cursor: pointer
-        user-select: none
         transition-duration: 0.3s
-        border-radius: 5px
+        border-radius: 0px
         +lgX-block
             width: 171px
             height: 58px
@@ -134,17 +127,6 @@
             width: 97px
             height: 39px
             font-size: 14px
-
-    .main__button:hover
-        transition-duration: 0.3s
-        transform: scale(0.95)
-        +xs-block
-            transform: none
-
-    .main__button:active
-        transition-duration: 0.3s
-        transform: scale(0.8)
-        
     
     .main__button-menu-mobile-wrapper
         display: flex
@@ -153,10 +135,18 @@
         justify-content: center
         align-content: center
         flex-wrap: wrap
+        align-items: center
         cursor: pointer
         border-radius: 50px
         margin-right: 10px
         transition: transform 0.4s linear, background 0.1s linear
+        -webkit-box-orient: vertical
+        -webkit-box-direction: normal
+        -ms-flex-direction: column
+        flex-direction: column
+        -webkit-box-align: center
+        -ms-flex-align: center
+        align-items: center
         +lg-block
             position: fixed
             top: 44px

@@ -214,7 +214,6 @@
 
 <style lang="sass">
   
-  @import "~/assets/smart-grid.sass"
 
   .admin-file-pond-wrapper .v-input__prepend-outer
       display: none

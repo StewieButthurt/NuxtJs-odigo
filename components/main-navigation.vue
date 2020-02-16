@@ -67,8 +67,7 @@
 </script>
 
 <style lang="sass">
-    @import "~/assets/smart-grid.sass"
-
+    
     .main__menu-city-layots
         margin-top: 56px
         width: 100%
@@ -148,6 +147,15 @@
         min-height: 10px
         cursor: pointer
         z-index: 2
+        display: -webkit-box
+        display: -ms-flexbox
+        -webkit-box-orient: vertical
+        -webkit-box-direction: normal
+        -ms-flex-direction: column
+        flex-direction: column
+        -webkit-box-align: center
+        -ms-flex-align: center
+        align-items: center
     
     .main__button-menu-mobile-line
         width: 23px

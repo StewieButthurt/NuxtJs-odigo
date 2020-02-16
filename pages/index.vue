@@ -31,6 +31,13 @@
   import AppFooter from '~/components/footer'
 
 export default {
+  head: {
+    title: 'Odigo | Home',
+    meta: [
+      {hid: 'homepage-description', name: 'description', content: 'best trips to japan'},
+      {hid: 'homepage-keywords', name: 'keywords', content: 'best trips, japan, places in japan, tours'}
+    ]
+  },
   data() {
     return {
       statusMenu: false
@@ -62,7 +69,6 @@ export default {
 
 <style lang="sass">
 
-  @import "~/assets/smart-grid.sass"
    
   .container-odigo
     width: 100%

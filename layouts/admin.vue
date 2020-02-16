@@ -121,7 +121,6 @@
 </script>
 
 <style lang="sass">
-    @import "~/assets/smart-grid.sass"
     
     .page-enter-active, .page-leave-active
         transition: opacity .4s

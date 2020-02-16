@@ -175,7 +175,6 @@
 
 <style lang="sass">
 
-    @import "~/assets/smart-grid.sass"
     
     .benefits-of-odigo
         display: flex

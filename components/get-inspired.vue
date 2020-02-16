@@ -167,7 +167,6 @@
 </script>
 
 <style lang="sass">
-    @import "~/assets/smart-grid.sass"
 
     .get-inspired
         width: 100%

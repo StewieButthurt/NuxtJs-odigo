@@ -1,7 +1,7 @@
 <template>
     <div class="large-preview-city">
         <div class="large-preview-city__title">
-            <span>{{title}}</span>
+            <h1>{{title}}</h1>
         </div>
         <div class="large-preview-city__images" v-click-outside="clickOutside">
             <div class="large-preview-city__images-list">
@@ -50,9 +50,9 @@
         <div class="large-preview-city__title large-preview-city__about">
             About the place
         </div>
-        <div class="large-preview-city__descr">
+        <h3 class="large-preview-city__descr">
             {{descr}}
-        </div>
+        </h3>
     </div>
 </template>
 
@@ -133,7 +133,6 @@
 </script>
 
 <style lang="sass">
-    @import "~/assets/smart-grid.sass"
 
     .large-preview-city
         display: flex
@@ -143,6 +142,9 @@
         margin-bottom: 40px
         +size-md(9)
         +size-xs(12)
+    
+    .large-preview-city h3
+        font-size: 18px
 
     .large-preview-city__title
         margin-top: 30px
@@ -151,6 +153,9 @@
         text-align: center
         padding-left: 15px
         padding-right: 15px
+    
+    .large-preview-city__title h1
+        font-size: 24px
         
     .large-preview-city__images
         display: flex

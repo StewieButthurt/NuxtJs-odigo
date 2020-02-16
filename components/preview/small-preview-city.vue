@@ -8,23 +8,21 @@
         transition="fade-transition"
     >
         <div class="today-top-city">
-            <div class="today-top-city__img" @click="seeMore()" @mouseover="todayTopCity = true" @mouseleave="todayTopCity = false">
+            <nuxt-link no-prefetch :to="`/${title}`" class="today-top-city__img" @mouseover="todayTopCity = true" @mouseleave="todayTopCity = false">
                 <div class="edit-city__img-card" :style="{ backgroundImage: `url(${imgMini})`, backgroundPosition: 'center center', backgroundSize: 'cover' }" :class="{'today-top-city__img-hover' : todayTopCity}"></div>
                 <div class="today-top-city__title-mask">
                     <div class="today-top-city__title-mask-text">
                         {{title}}
                     </div>
                 </div>
-            </div>
+            </nuxt-link >
             <div class="today-top-city__descr">
                 {{descrSmall}}
             </div>
             <v-spacer />
             <v-row>
                 <v-col cols="12" sm="6" md="6">
-                    <div class="today-top-city__button" @click="seeMore()">
-                        <span>see more</span>
-                    </div>
+                    <v-btn :disabled="!seeMoreButton" :nuxt="true" :to="`/${title}`" id="today-top-city__button" @click="seeMore()">see more</v-btn>
                 </v-col>
             </v-row>
         </div>
@@ -61,19 +59,11 @@
             imgMini() {
                 return this.img
             }
-        },
-        methods: {
-            seeMore() {
-                if(this.seeMoreButton) {
-                    this.$router.push(`/${this.title}`)
-                }
-            }
         }
     }
 </script>
 
 <style lang="sass">
-    @import "~/assets/smart-grid.sass"
 
     .today-top-city
         width: 100%
@@ -126,19 +116,13 @@
             min-height: inherit
 
 
-    .today-top-city__button
-        display: flex
-        justify-content: center
-        align-content: center
-        flex-wrap: wrap
+    #today-top-city__button
         color: white
-        user-select: none
-        text-transform: uppercase
         background-color: #006DFE
         margin-top: 30px
+        border-radius: 0px
         width: 157px
         height: 56px
-        cursor: pointer
         transition-duration: 0.3s
         +lgX-block
             width: 118px

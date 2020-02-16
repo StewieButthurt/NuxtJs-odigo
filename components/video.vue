@@ -47,7 +47,6 @@
 </script>
 
 <style lang="sass">
-    @import "~/assets/smart-grid.sass"
 
     .video
         width: 100%
@@ -79,11 +78,21 @@
         height: 100%
         display: flex
         justify-content: center
+        -webkit-box-align: center
+        -ms-flex-align: center
+        align-items: center
         align-content: center
         flex-wrap: wrap
         background: url('../assets/street.jpg')
         background-size: cover
         z-index: 1
+        display: -webkit-box
+        display: -ms-flexbox
+        -webkit-box-pack: center
+        -ms-flex-pack: center
+        -ms-flex-line-pack: center
+        -ms-flex-wrap: wrap
+       
 
     .preview-disabled
         z-index: -1
