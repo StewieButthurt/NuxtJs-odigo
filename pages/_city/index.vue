@@ -85,9 +85,9 @@
         },
         head() {
             return {
-                title: `Odigo | ${this.city[0].title}`,
+                title: `Travel with Odigo | ${this.city[0].title}`,
                 meta: [
-                    {hid: `places-description-${this.city[0].title}`, name: 'description', content: `${this.city[0].title}`},
+                    {hid: `places-description-${this.city[0].title}`, name: 'description', content: `Best trips to Japan. Visit ${this.city[0].title} with Odigo`},
                     {hid: `places-keywords-${this.city[0].title}`, name: 'keywords', content: ` ${this.city[0].title}, best trips, japan, travel, places in japan, tours`},
                 ],
                 link: [

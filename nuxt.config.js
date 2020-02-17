@@ -48,7 +48,6 @@ module.exports = {
     '@nuxtjs/axios',
     'nuxt-vuex-localstorage',
     '@nuxtjs/recaptcha',
-    ['@nuxtjs/localtunnel', { subdomain: 'onserverstewie' }],
     '@nuxtjs/style-resources',
     [
       '@nuxtjs/yandex-metrika',
@@ -69,10 +68,21 @@ module.exports = {
         Disallow: ['/admin', '/login'],
         Allow: ''
       },
-      sitemap: [
-        // sitemaps options is an array of object
-      ]
-    }]
+      sitemap: [{
+        generate: true
+      }]
+    }],
+    [
+      "nuxt-compress",
+      {
+        gzip: {
+          cache: true
+        },
+        brotli: {
+          threshold: 10240
+        }
+      }
+    ]
   ],
   axios: {
     baseURL: process.env.BASE_URL || 'http://localhost:3000'

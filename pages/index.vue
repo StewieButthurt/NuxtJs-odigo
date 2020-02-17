@@ -32,9 +32,9 @@
 
 export default {
   head: {
-    title: 'Odigo | Home',
+    title: 'Travel with Odigo | Home',
     meta: [
-      {hid: 'homepage-description', name: 'description', content: 'best trips to japan'},
+      {hid: 'homepage-description', name: 'description', content: 'Best trips to Japan. Visit the beautiful places of Japan with Odigo'},
       {hid: 'homepage-keywords', name: 'keywords', content: 'best trips, japan, places in japan, tours'}
     ]
   },

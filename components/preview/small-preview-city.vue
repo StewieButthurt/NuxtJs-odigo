@@ -8,7 +8,7 @@
         transition="fade-transition"
     >
         <div class="today-top-city">
-            <nuxt-link no-prefetch :to="`/${title}`" class="today-top-city__img" @mouseover="todayTopCity = true" @mouseleave="todayTopCity = false">
+            <nuxt-link no-prefetch :to="`/${title}`" class="today-top-city__img" @mouseover.native="todayTopCity = true" @mouseleave.native="todayTopCity = false">
                 <div class="edit-city__img-card" :style="{ backgroundImage: `url(${imgMini})`, backgroundPosition: 'center center', backgroundSize: 'cover' }" :class="{'today-top-city__img-hover' : todayTopCity}"></div>
                 <div class="today-top-city__title-mask">
                     <div class="today-top-city__title-mask-text">
