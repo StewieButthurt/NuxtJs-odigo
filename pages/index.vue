@@ -22,13 +22,13 @@
 </template>
 
 <script>
-  import AppMain from '~/components/main'
-  import AppMobileMenu from '~/components/mobile-menu'
-  import AppBenefitsOdigo from '~/components/benefits-of-odigo'
-  import AppGetInspired from '~/components/get-inspired'
-  import AppTodayTopPlaces from '~/components/today-top-places'
-  import AppVideo from '~/components/video'
-  import AppFooter from '~/components/footer'
+  const AppMain = () => import('~/components/main')
+  const AppMobileMenu = () => import('~/components/mobile-menu')
+  const AppBenefitsOdigo = () => import('~/components/benefits-of-odigo')
+  const AppGetInspired = () => import('~/components/get-inspired')
+  const AppTodayTopPlaces = () => import('~/components/today-top-places')
+  const AppVideo = () => import('~/components/video')
+  const AppFooter = () => import('~/components/footer')
 
 export default {
   head: {

@@ -21,7 +21,7 @@
 
 <script>
 
-    import AppSmallPreviewCity from '~/components/preview/small-preview-city'
+    const AppSmallPreviewCity = () => import('~/components/preview/small-preview-city')
 
     export default {
         data() {

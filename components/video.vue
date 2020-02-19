@@ -1,25 +1,34 @@
 <template>
-    <div class="video" id="Videos">
-        <div class="video__padding-bottom">
-            <div class="video__position">
-                <client-only>
-                    <youtube class="youtube-video" :class="{'preview-active' : previewLoading === false}" video-id="Et7O5-CzJZg"  ref="youtube" @playing="playing"></youtube>
-                    <div class="video__preview-img" :class="{'preview-disabled' : previewYoutube === false}">
-                        <div class="preview__button" 
-	     		     		@click="changePreview()" 
-	     		     		>
-	     					<svg viewBox="0 0 112 112" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 56C0 25.088 25.088 0 56 0C86.912 0 112 25.088 112 56C112 86.912 86.912 112 56 112C25.088 112 0 86.912 0 56ZM78.4 56L44.8 30.8V81.2L78.4 56Z" fill="white"/>
-                            </svg>
-	     		     	</div>
-                    </div>
-                    <div class="preview-loading" :class="{'preview-active' : previewLoading}">
-                        <img  src="~/assets/loading.gif" alt="loading.gif">
-                    </div>
-                </client-only>
+    <v-lazy
+        v-model="isActive"
+        :options="{
+            threshold: .5
+        }"
+        transition="fade-transition"
+        style="width: 100%"
+    >
+        <div class="video" id="Videos">
+            <div class="video__padding-bottom">
+                <div class="video__position">
+                    <client-only>
+                        <youtube class="youtube-video" :class="{'preview-active' : previewLoading === false}" video-id="Et7O5-CzJZg"  ref="youtube" @playing="playing"></youtube>
+                        <div class="video__preview-img" :class="{'preview-disabled' : previewYoutube === false}">
+                            <div class="preview__button" 
+                                @click="changePreview()" 
+                                >
+                                <svg viewBox="0 0 112 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 56C0 25.088 25.088 0 56 0C86.912 0 112 25.088 112 56C112 86.912 86.912 112 56 112C25.088 112 0 86.912 0 56ZM78.4 56L44.8 30.8V81.2L78.4 56Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="preview-loading" :class="{'preview-active' : previewLoading}">
+                            <img  src="~/assets/loading.gif" alt="loading.gif">
+                        </div>
+                    </client-only>
+                </div>
             </div>
         </div>
-    </div>
+    </v-lazy>
 </template>
 
 <script>
@@ -27,7 +36,8 @@
         data() {
             return {
                 previewYoutube: true,
-                previewLoading: false
+                previewLoading: false,
+                isActive: false
             }
         },
         methods: {

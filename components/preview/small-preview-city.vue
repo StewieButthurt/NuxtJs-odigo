@@ -1,15 +1,16 @@
 <template>
-    <v-lazy
-        v-model="isActive"
-        :options="{
-            threshold: .5
-        }"
-        class="lazy-today-top-city"
-        transition="fade-transition"
-    >
         <div class="today-top-city">
             <nuxt-link no-prefetch :to="`/${title}`" class="today-top-city__img" @mouseover.native="todayTopCity = true" @mouseleave.native="todayTopCity = false">
-                <div class="edit-city__img-card" :style="{ backgroundImage: `url(${imgMini})`, backgroundPosition: 'center center', backgroundSize: 'cover' }" :class="{'today-top-city__img-hover' : todayTopCity}"></div>
+                <v-lazy
+                    v-model="isActive"
+                    :options="{
+                        threshold: .5
+                    }"
+                    transition="fade-transition"
+                    style="width: 100%; min-height: 1px"
+                >
+                    <div class="edit-city__img-card" :style="{ backgroundImage: `url(${imgMini})`, backgroundPosition: 'center center', backgroundSize: 'cover' }" :class="{'today-top-city__img-hover' : todayTopCity}"></div>
+                </v-lazy>
                 <div class="today-top-city__title-mask">
                     <div class="today-top-city__title-mask-text">
                         {{title}}
@@ -26,7 +27,6 @@
                 </v-col>
             </v-row>
         </div>
-    </v-lazy>
 </template>
 
 <script>
@@ -65,14 +65,14 @@
 
 <style lang="sass">
 
-    .today-top-city
-        width: 100%
-        display: flex
-        flex-direction: column
-        +xs-block
-            align-items: center
+    // .today-top-city
+    //     width: 100%
+    //     display: flex
+    //     flex-direction: column
+    //     +xs-block
+    //         align-items: center
         
-    .lazy-today-top-city
+    .today-top-city
         +size(3.6)
         +size-md(5.8)
         +size-xs(12)

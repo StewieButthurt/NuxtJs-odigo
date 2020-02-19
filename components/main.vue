@@ -16,7 +16,7 @@
 </template>
 
 <script>
-    import AppMainNavigation from '~/components/main-navigation'
+    const AppMainNavigation = () => import('~/components/main-navigation')
     export default {
         data() {
             return {

@@ -3,7 +3,7 @@
         <div class="get-inspired__header">
             <h2>
                 <span class="get-inspired__header-border">Get inspired for your</span>
-                 next trip
+                next trip
             </h2>
         </div>
         <div class="get-inspired__cityes-wrapper">
