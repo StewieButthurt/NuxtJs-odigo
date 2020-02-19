@@ -1,5 +1,6 @@
 const express = require('express')
 const consola = require('consola')
+const {Router} = require('express')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
@@ -10,6 +11,7 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const keys = require('./keys')
+const router = Router()
 const { Nuxt, Builder } = require('nuxt')
 
 const authRoutes = require('./routes/auth.routes');
@@ -50,6 +52,11 @@ app.use(apiLimiter)
 app.use('/api/auth', authRoutes)
 app.use('/api/city', cityRoutes)
 app.use('/api/form', formRoutes)
+
+setInterval(function() {
+  router.get('https://odigo-stewiebutthurt.herokuapp.com/')
+}, 900000);
+
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
