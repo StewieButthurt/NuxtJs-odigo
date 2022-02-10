@@ -55,7 +55,7 @@
     "@nuxtjs/vuetify": "^1.10.2",
     "deepmerge": "^4.2.2",
     "fibers": "^4.0.2",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "nodemon": "^1.18.9",
     "sass": "^1.25.0",
     "sass-loader": "^8.0.2"
